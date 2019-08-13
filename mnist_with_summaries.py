@@ -32,6 +32,7 @@ from tensorflow.examples.tutorials.mnist import input_data
 
 FLAGS = None
 
+os.environ['TF_CPP_MIN_LOG_LEVEL'] = '2'
 
 def train():
   # Import data
@@ -208,6 +209,5 @@ if __name__ == '__main__':
       default=os.path.join(os.getenv('TEST_TMPDIR', '/tmp'),
                            'tensorflow/mnist/logs/mnist_with_summaries'),
       help='Summaries log directory')
-  os.environ['TF_CPP_MIN_LOG_LEVEL']=2
   FLAGS, unparsed = parser.parse_known_args()
   tf.app.run(main=main, argv=[sys.argv[0]] + unparsed)
